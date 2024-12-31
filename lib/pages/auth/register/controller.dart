@@ -5,10 +5,10 @@ class RegisterController extends GetxController {
 
   final formKey = GlobalKey<FormState>();
 
-  final usernameController = TextEditingController(text: 'client');
-  final emailController = TextEditingController(text: 'client@mail.com');
-  final passwordController = TextEditingController(text: '123456');
-  final confirmController = TextEditingController(text: '123456');
+  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmController = TextEditingController();
 
   Map<String, String> errors = {};
 
@@ -33,7 +33,7 @@ class RegisterController extends GetxController {
       if (!response.success) {
         await DialogsView.message(
           'register.submit.dialog.title'.tr,
-          response.message,
+          response.message.clearTags,
         ).show();
 
         Get.back();
@@ -62,7 +62,7 @@ class RegisterController extends GetxController {
 
                 await DialogsView.message(
                   'register.submit.dialog.title'.tr,
-                  loginResponse.message,
+                  loginResponse.message.clearTags,
                 ).show();
               } else {
                 await mainService.onAuth(loginResponse.value['token']);

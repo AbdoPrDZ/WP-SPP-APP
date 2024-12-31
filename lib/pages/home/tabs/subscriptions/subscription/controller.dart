@@ -42,7 +42,7 @@ class SubscriptionController extends GetxController {
 
     await DialogsView.message(
       "subscription.upload_proof.dialog.title".tr,
-      response.message,
+      response.message.clearTags,
     ).show();
 
     if (response.success) {

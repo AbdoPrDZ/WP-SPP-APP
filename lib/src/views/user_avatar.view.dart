@@ -237,8 +237,9 @@ class UserAvatarView extends StatelessWidget {
                   topRightFloatingWidget: topRightFloatingWidget,
                   bottomRightFloatingWidget: bottomRightFloatingWidget,
                   onPressed: onPressed,
-                  child:
-                      const CircularProgressIndicator(color: UIColors.primary),
+                  child: const CircularProgressIndicator(
+                    color: UIColors.primary,
+                  ),
                 ),
                 onFailedWidget: UserAvatarView(
                   backgroundColor: backgroundColor,

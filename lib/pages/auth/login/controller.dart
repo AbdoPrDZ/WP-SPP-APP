@@ -27,9 +27,6 @@ class LoginController extends GetxController {
         },
       );
 
-      print(response.statusCode);
-      print(response.body);
-
       String message = response.message;
 
       final value = response.value;
@@ -47,7 +44,7 @@ class LoginController extends GetxController {
 
         await DialogsView.message(
           'login.submit.dialog.title'.tr,
-          message,
+          message.clearTags,
         ).show();
       }
 

@@ -63,7 +63,6 @@ class _OldHomePageState extends State<OldHomePage> {
     await _cookieManager.deleteAllCookies();
 
     for (final cookie in pageData.subscriptionInfo.cookies) {
-      print('cookies item: $cookie');
       _cookieManager.setCookie(
         url: homeUrl,
         name: cookie.name,
@@ -247,7 +246,6 @@ class _OldHomePageState extends State<OldHomePage> {
                       webView = controller;
                     },
                     shouldInterceptRequest: (controller, request) async {
-                      print('intercept request: ${request.url}');
                       if (isUrlBlocked("${request.url}")) {
                         return WebResourceResponse(
                           statusCode: 302,
@@ -262,15 +260,12 @@ class _OldHomePageState extends State<OldHomePage> {
                         (controller, navigationAction) async {
                       final url = navigationAction.request.url;
 
-                      print('override url: $url');
-
                       // return NavigationActionPolicy.CANCEL;
                       return url != null && isUrlBlocked("$url")
                           ? NavigationActionPolicy.CANCEL
                           : NavigationActionPolicy.ALLOW;
                     },
                     onLoadStart: (controller, url) {
-                      print("started $url");
                       setState(() {
                         _loading = true;
                       });
@@ -284,7 +279,6 @@ class _OldHomePageState extends State<OldHomePage> {
                       //     print("${cookie.name} ${cookie.value}");
                       //   }
                       // }
-                      print("stopped $url");
                       setState(() {
                         _loading = false;
                       });
@@ -296,7 +290,9 @@ class _OldHomePageState extends State<OldHomePage> {
                     child: Container(
                       color: const Color.fromARGB(102, 0, 0, 0),
                       child: const Center(
-                        child: CircularProgressIndicator(),
+                        child: CircularProgressIndicator(
+                          color: UIColors.primary,
+                        ),
                       ),
                     ),
                   ),

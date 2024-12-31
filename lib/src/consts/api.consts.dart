@@ -7,7 +7,7 @@ import '../src.dart';
 class AppAPI {
   static const bool debug = true;
 
-  static const String defaultApiIP = "https://6ed8-105-99-79-96.ngrok-free.app";
+  static const String defaultApiIP = "https://rifose.com/";
 
   static String get appApiIP => Get.find<MainService>().setting.apiIP;
 

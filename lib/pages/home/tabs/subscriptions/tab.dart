@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '../../../../src/src.dart';
 import 'subscription/page.dart';
 
@@ -14,5 +16,6 @@ class SubscriptionsTab extends StatelessWidget {
         ),
         itemBuilder: (context, subscription, index) =>
             SubscriptionItemView(subscription: subscription),
+        emptyMessage: 'subscriptions.empty'.tr,
       );
 }

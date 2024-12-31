@@ -1,4 +1,4 @@
-package com.example.spp_webview
+package dz.abdopr.apps.wp_spp_app
 
 import io.flutter.embedding.android.FlutterActivity
 

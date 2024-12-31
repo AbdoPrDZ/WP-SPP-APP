@@ -1,16 +1,12 @@
-# spp_webview
+# WP SPP Hosts Flutter Application
 
-A new Flutter project.
+The wordpress SPP Hosts flutter application
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+To install the application, follow these steps:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Go to the [Releases](https://github.com/AbdoPrDZ/WP-SPP-APP/releases) page.
+2. Download the latest release for your platform.
+3. Follow the instructions provided in the release notes to install the application.

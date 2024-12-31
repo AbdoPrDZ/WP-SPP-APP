@@ -21,12 +21,6 @@ abstract class Language {
   bool get isAr => char == 'ar';
   bool get isFr => char == 'fr';
 
-  String get flag => {
-        'en': '🇺🇸',
-        'ar': '🇩🇿',
-        'fr': '🇫🇷',
-      }[char]!;
-
   Color? get backgroundColor => {
         'en': UIColors.success,
         'ar': null,
@@ -43,10 +37,9 @@ abstract class Language {
       char == null ? null : {'en': en, 'ar': ar, 'fr': fr}[char];
 
   @override
-  String toString() => "language.$name".tr;
+  String toString() => name.tr;
 
   @override
-  // ignore: non_nullable_equals_parameter
   bool operator ==(dynamic other) {
     return other is Language && other.char == char;
   }

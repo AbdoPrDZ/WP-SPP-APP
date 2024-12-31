@@ -52,6 +52,8 @@ class OfferController extends GetxController {
             : response.message,
       ).show();
 
+      if (response.success) Get.back();
+
       Get.back();
     }
   }

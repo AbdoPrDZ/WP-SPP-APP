@@ -58,7 +58,7 @@ class MainService extends GetxService with WidgetsBindingObserver {
 
   Future<bool> initApp() async {
     if (_storageDatabase == null) {
-      _storageDatabase = await StorageDatabase.getInstance();
+      _storageDatabase = StorageDatabase(await SecureStorageDatabase.instance);
 
       await storageDatabase.initExplorer();
       await storageDatabase.explorer.initNetWorkFiles();

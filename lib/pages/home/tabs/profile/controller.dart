@@ -37,8 +37,8 @@ class SettingsController extends GetxController {
 
     if (formKey.currentState?.validate() == true) {
       bool confirm = await DialogsView.message(
-            'edit_profile.submit_dialog.title'.tr,
-            'edit_profile.submit_dialog.confirm_message'.tr,
+            'profile.submit_dialog.title'.tr,
+            'profile.submit_dialog.confirm_message'.tr,
             actions: DialogAction.rYesNo,
           ).show() ??
           false;
@@ -65,8 +65,8 @@ class SettingsController extends GetxController {
       );
 
       await DialogsView.message(
-        'edit_profile.submit_dialog.title'.tr,
-        response.message,
+        'profile.submit_dialog.title'.tr,
+        response.message.clearTags,
       ).show();
 
       if (response.success) {

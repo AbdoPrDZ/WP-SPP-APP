@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:spp_webview/main.dart';
+import 'package:wp_spp_app/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
@@ -28,33 +28,3 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 }
-
-// import '../lib/src/utilsvalidator.dart';
-
-// void validate(String text, String rules, String attribute) {
-//   final resault = text.validate(rules, attribute);
-//   print(
-//     "validate '$text' with $rules: ${resault.firstOrNull}",
-//   );
-// }
-
-// void main() {
-//   validate("", "required", "text");
-//   // Output: validate '' with required: The text field is required
-//   validate("user", "required|email", "email");
-//   // Output: validate 'user' with required|email: The email field must be a valid email
-//   validate("user@mail.com", "required|email", "email");
-//   // Output: validate 'user@mail.com' with required|email: null
-//   validate("12", "required|password", "password");
-//   // Output: validate '12' with required|password: The password field must be at least 6 characters
-//   validate("123456", "required|password", "password");
-//   // Output: validate '123456' with required|password: null
-//   validate("123", "min:4", "text");
-//   // Output: validate '123' with min:4: The text field must be at least 4 characters
-//   validate("3", "min:4,number", "number");
-//   // Output: validate '3' with min:4: The number field must be at least 4
-//   validate("123456", "max:4", "text");
-//   // Output: validate '123456' with max:4: The text field may not be greater than 4 characters
-//   validate("8", "max:4,number", "number");
-//   // Output: validate '8' with max:4: The number field may not be greater than
-// }

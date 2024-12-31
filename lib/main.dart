@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-        title: "SPP WebView",
+        title: "SPP Hosts",
         debugShowCheckedModeBanner: false,
         translations: AppTranslations(),
         locale: Get.find<MainService>().appLanguage.locale,

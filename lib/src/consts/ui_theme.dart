@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,7 +5,7 @@ import '../../services/main.service.dart';
 
 class UIColors {
   // basic
-  static const Color primary = ui.Color.fromARGB(255, 8, 103, 145);
+  static const Color primary = Color(0xFF086791);
   static const Color primary2 = Color(0XFFf69808);
   static const Color backgroundColor = Color(0xFF080E1A);
   static const Color success = Color(0xFF4DFC89);
@@ -65,7 +63,7 @@ class DarkTheme {
     'fieldBg': Color(0x1DFFFFFF),
     'fieldText': Color(0xFFEBEBEB),
     'fieldFocus': UIColors.primary2,
-    'cardBg': Color(0XFF101D2B),
+    'cardBg': Color(0xFF202020),
     'cardBg1': Color(0xFFEAEAEA),
   };
 

@@ -23,7 +23,15 @@ class SubscriptionPage extends MGetPage<SubscriptionController> {
   Future<Map> loadPaymentInformations() async {
     final response = await AppAPI.apiClient.get(AppAPI.paymentInformations);
 
-    return response.success ? response.value : {};
+    if (!response.success) {
+      throw Exception(response.message);
+    }
+
+    final data = response.value as Map;
+
+    data.removeWhere((key, value) => value == null || value == '');
+
+    return data;
   }
 
   @override
@@ -33,6 +41,9 @@ class SubscriptionPage extends MGetPage<SubscriptionController> {
           'name': controller.subscription.name,
         })),
       );
+
+  @override
+  bool get isScrollable => true;
 
   @override
   Widget buildBody(BuildContext context) => Padding(
@@ -90,7 +101,9 @@ class SubscriptionPage extends MGetPage<SubscriptionController> {
                 future: loadPaymentInformations(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(color: UIColors.primary),
+                    );
                   }
 
                   if (snapshot.hasError || snapshot.data == null) {
@@ -110,37 +123,43 @@ class SubscriptionPage extends MGetPage<SubscriptionController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        for (final entry in paymentInformations.entries)
-                          Row(
-                            children: [
-                              Text(
-                                "${entry.key}: ",
-                                style: TextStyles.subMidTitleBold,
-                              ),
-                              Text(
-                                "${entry.value}",
-                                style: TextStyles.subMidTitle,
-                              ),
-                              const Spacer(),
-                              IconButton(
-                                icon: Icon(
-                                  Icons.copy,
-                                  color: UIThemeColors.iconFg1,
+                        if (paymentInformations.isEmpty)
+                          Text(
+                            "subscription.payment_info.empty".tr,
+                            style: TextStyles.midTitleDanger,
+                          )
+                        else
+                          for (final entry in paymentInformations.entries)
+                            Row(
+                              children: [
+                                Text(
+                                  "${entry.key}: ",
+                                  style: TextStyles.subMidTitleBold,
                                 ),
-                                onPressed: () {
-                                  Clipboard.setData(
-                                    ClipboardData(text: entry.value),
-                                  );
-                                  snackText(
-                                    "subscription.payment_info.copied"
-                                        .trParams({
-                                      'target': entry.key,
-                                    }),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
+                                Text(
+                                  "${entry.value}",
+                                  style: TextStyles.subMidTitle,
+                                ),
+                                const Spacer(),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.copy,
+                                    color: UIThemeColors.iconFg1,
+                                  ),
+                                  onPressed: () {
+                                    Clipboard.setData(
+                                      ClipboardData(text: entry.value),
+                                    );
+                                    snackText(
+                                      "subscription.payment_info.copied"
+                                          .trParams({
+                                        'target': entry.key,
+                                      }),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                       ],
                     ),
                   );

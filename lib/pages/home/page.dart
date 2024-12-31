@@ -60,7 +60,7 @@ class HomePage extends MGetPage<HomeController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "SPP WebView",
+              "SPP Hosts",
               style: TextStyle(
                 color: LightTheme.pageBackground,
                 fontSize: 20,
@@ -69,7 +69,7 @@ class HomePage extends MGetPage<HomeController> {
             ),
             const Gap(5),
             Text(
-              'SPP WebView\n© All Rights Reserved.',
+              'SPP Hosts Application\n© All Rights Reserved.',
               style: TextStyle(
                 color: LightTheme.pageBackground,
                 fontSize: 14,

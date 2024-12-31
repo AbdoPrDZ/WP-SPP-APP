@@ -15,15 +15,15 @@ class WatchPage extends MGetPage<WatchController> {
   @override
   WatchController get initController => WatchController();
 
-  @override
-  bool get canPop {
-    if (controller.canGoBack) {
-      controller.goBack();
-      return false;
-    }
+  // @override
+  // bool get canPop {
+  //   if (controller.canGoBack) {
+  //     controller.goBack?.call();
+  //     return false;
+  //   }
 
-    return true;
-  }
+  //   return true;
+  // }
 
   Widget buildAction(IconData icon, String tooltip, VoidCallback? onPressed) =>
       ButtonView.icon(
@@ -131,7 +131,9 @@ class WatchPage extends MGetPage<WatchController> {
               child: Container(
                 color: const Color(0x66000000),
                 child: const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: UIColors.primary,
+                  ),
                 ),
               ),
             ),

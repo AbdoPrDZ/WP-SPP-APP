@@ -21,7 +21,7 @@ class ButtonView extends StatelessWidget {
     this.margin = EdgeInsets.zero,
     this.padding = const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
     required this.child,
-    this.backgroundColor = UIColors.primary,
+    this.backgroundColor,
     this.borderColor,
     this.borderRadius = 4,
     this.boxDecoration,
@@ -67,80 +67,6 @@ class ButtonView extends StatelessWidget {
           height: height,
           tooltip: tooltip,
         );
-
-  // ButtonView.gradient({
-  //   Key? key,
-  //   required Function()? onPressed,
-  //   EdgeInsets margin = EdgeInsets.zero,
-  //   EdgeInsets padding = const EdgeInsets.symmetric(
-  //     vertical: 12,
-  //     horizontal: 28,
-  //   ),
-  //   required Widget child,
-  //   Color? borderColor = const Color(0x33FFFFFF),
-  //   double borderRadius = 32,
-  //   double? width,
-  //   double? height,
-  //   String? tooltip,
-  // }) : this(
-  //         key: key,
-  //         onPressed: onPressed,
-  //         boxDecoration: BoxDecoration(
-  //           borderRadius: BorderRadius.circular(borderRadius),
-  //           gradient: LinearGradient(
-  //             begin: Alignment.centerLeft,
-  //             end: Alignment.bottomCenter,
-  //             colors: [UIThemeColors.gradient1, UIThemeColors.gradient2],
-  //           ),
-  //           border: borderColor != null
-  //               ? Border.all(
-  //                   width: 0.8,
-  //                   color: borderColor,
-  //                 )
-  //               : null,
-  //         ),
-  //         margin: margin,
-  //         padding: padding,
-  //         backgroundColor: Colors.transparent,
-  //         borderColor: Colors.transparent,
-  //         borderRadius: borderRadius,
-  //         height: height,
-  //         width: width,
-  //         child: child,
-  //         tooltip: tooltip,
-  //       );
-
-  // factory ButtonView.gradientText({
-  //   Key? key,
-  //   required Function()? onPressed,
-  //   EdgeInsets margin = EdgeInsets.zero,
-  //   EdgeInsets padding = const EdgeInsets.symmetric(
-  //     vertical: 12,
-  //     horizontal: 28,
-  //   ),
-  //   required String text,
-  //   TextStyle? textStyle,
-  //   Color borderColor = const Color(0x33FFFFFF),
-  //   double borderRadius = 32,
-  //   double? width,
-  //   double? height,
-  //   String? tooltip,
-  // }) =>
-  //     ButtonView.gradient(
-  //       key: key,
-  //       onPressed: onPressed,
-  //       margin: margin,
-  //       padding: padding,
-  //       borderColor: borderColor,
-  //       borderRadius: borderRadius,
-  //       width: width,
-  //       height: height,
-  //       tooltip: tooltip,
-  //       child: Text(
-  //         text,
-  //         style: textStyle ?? TextStyles.midTitleBold,
-  //       ),
-  //     );
 
   ButtonView.icon({
     Key? key,
@@ -239,6 +165,7 @@ class ButtonView extends StatelessWidget {
       horizontal: 16,
       vertical: 12,
     ),
+    Color? backgroundColor = Colors.transparent,
     Color? borderColor = const Color(0x33FFFFFF),
     double borderRadius = 10,
     double? width,
@@ -249,6 +176,7 @@ class ButtonView extends StatelessWidget {
         key: key,
         margin: margin,
         padding: padding,
+        backgroundColor: backgroundColor,
         borderColor: borderColor,
         borderRadius: borderRadius,
         width: width,
@@ -266,7 +194,9 @@ class ButtonView extends StatelessWidget {
                 ? MNetworkImage(
                     url: url,
                     build: (file) => Image.file(file),
-                    onLoadingWidget: const CircularProgressIndicator(),
+                    onLoadingWidget: const CircularProgressIndicator(
+                      color: UIColors.primary,
+                    ),
                     onFailedWidget: const Icon(Icons.image_not_supported),
                   )
                 : emptyBuilder?.call() ?? const Icon(Icons.image_search),

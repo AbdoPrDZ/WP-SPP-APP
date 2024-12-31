@@ -28,7 +28,7 @@ class _HomeTabState extends State<HomeTab> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
               child: Row(
                 children: [
                   UserAvatarView.networkImageOrAvatarLetter(
@@ -54,7 +54,7 @@ class _HomeTabState extends State<HomeTab> {
                 ],
               ),
             ),
-            const Gap(20),
+            const Gap(10),
             Row(
               children: [
                 Text(
@@ -66,7 +66,7 @@ class _HomeTabState extends State<HomeTab> {
                   onPressed: () => homeController.goToTab('subscriptions'),
                   child: Icon(
                     Icons.open_in_new,
-                    size: 16,
+                    size: 18,
                     color: UIThemeColors.text2,
                   ),
                 ),
@@ -83,6 +83,7 @@ class _HomeTabState extends State<HomeTab> {
                     refresh: true,
                   ),
                 ),
+                emptyMessage: 'subscriptions.empty'.tr,
               ),
             ),
             const Gap(20),
@@ -97,7 +98,7 @@ class _HomeTabState extends State<HomeTab> {
                   onPressed: () => homeController.goToTab('offers'),
                   child: Icon(
                     Icons.open_in_new,
-                    size: 16,
+                    size: 18,
                     color: UIThemeColors.text2,
                   ),
                 ),

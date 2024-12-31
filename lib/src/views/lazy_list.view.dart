@@ -111,7 +111,8 @@ class _LazyListViewState<T> extends State<LazyListView<T>> {
                 )
               : Center(
                   child: isLoading
-                      ? _defaultLoadingBuilder(context)
+                      ? widget.loadingBuilder?.call(context) ??
+                          _defaultLoadingBuilder(context)
                       : error != null
                           ? widget.errorBuilder?.call(context) ??
                               Flex(
@@ -143,7 +144,7 @@ class _LazyListViewState<T> extends State<LazyListView<T>> {
                                   Text(
                                     widget.emptyMessage ??
                                         "lazy_list_view.empty_message".tr,
-                                    style: TextStyles.subMidTitleBold,
+                                    style: TextStyles.subSmallTitleBold2,
                                   ),
                                   const Gap(15),
                                   ButtonView.icon(

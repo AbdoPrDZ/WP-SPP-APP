@@ -22,11 +22,9 @@ class WatchController extends GetxController {
       final httpBlockedUrl = blockedUrl.replaceAll('https:', 'http:').trim();
 
       if (httpUrl == httpBlockedUrl || httpUrl.contains(httpBlockedUrl)) {
-        print('blocked: $url');
         return true;
       }
     }
-    print('allowed: $url');
 
     return false;
   }
@@ -110,7 +108,6 @@ class WatchController extends GetxController {
     WebResourceRequest request,
     error,
   ) {
-    print('error: $error');
     DialogsView.message('Error', '$error').show();
     loading = false;
     pageLoadProgress = 0;

@@ -1,6 +1,6 @@
 {
-    "name": "spp_webview",
-    "short_name": "spp_webview",
+    "name": "wp_spp_app",
+    "short_name": "wp_spp_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

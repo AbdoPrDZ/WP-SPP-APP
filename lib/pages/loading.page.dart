@@ -67,15 +67,13 @@ class _LoadingPageState extends State<LoadingPage> {
                   height: MediaQuery.of(context).size.width * 0.5,
                 ),
                 const Gap(20),
-                const CircularProgressIndicator(
-                  color: UIColors.primary,
-                ),
+                const CircularProgressIndicator(color: UIColors.primary),
                 const Spacer(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15)
                       .copyWith(bottom: 60),
                   child: Text(
-                    'SPP WebView\n© All Rights Reserved.',
+                    'SPP Hosts Application\n© All Rights Reserved.',
                     style: TextStyles.subMidTitle2,
                     textAlign: TextAlign.center,
                   ),

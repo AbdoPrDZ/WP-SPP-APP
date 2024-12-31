@@ -229,7 +229,7 @@ class _CustomDrawerViewState extends State<CustomDrawerView> {
                           ),
                           margin: const EdgeInsets.symmetric(horizontal: 2),
                           child: Text(
-                            lang.flag,
+                            "$lang",
                             style: TextStyle(
                               color: mainService.appLanguage == lang
                                   ? const Color(0XFF707070)

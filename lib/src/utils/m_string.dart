@@ -28,6 +28,8 @@ extension MString on String {
 
   DateTime? toDate({String format = 'yyyy-MM-dd HH:mm:ss'}) =>
       MDateTime.fromString(this, format: format);
+
+  String get clearTags => replaceAll(RegExp(r'<[^>]*>'), '');
 }
 
 class TString {

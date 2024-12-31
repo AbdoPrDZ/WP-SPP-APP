@@ -10,7 +10,7 @@ class AppUserModel {
   final String? firstName;
   final String? lastName;
   final String? description;
-  final String? profilePhoto;
+  final String? profilePhotoUrl;
 
   const AppUserModel({
     required this.id,
@@ -19,11 +19,8 @@ class AppUserModel {
     required this.firstName,
     required this.lastName,
     required this.description,
-    required this.profilePhoto,
+    required this.profilePhotoUrl,
   });
-
-  String? get profilePhotoUrl =>
-      profilePhoto == null ? null : "${AppAPI.appApiIP}/$profilePhoto";
 
   String get avatarLetters => firstName != null && lastName != null
       ? '${firstName![0]}${lastName![0]}'.toUpperCase()
@@ -39,7 +36,7 @@ class AppUserModel {
             data['last_name'].toString().isEmpty ? null : data['last_name'],
         description:
             data['description'].toString().isEmpty ? null : data['description'],
-        profilePhoto: data['profile_photo_url'],
+        profilePhotoUrl: data['profile_photo_url'],
       );
 
   static MainService get mainService => Get.find();

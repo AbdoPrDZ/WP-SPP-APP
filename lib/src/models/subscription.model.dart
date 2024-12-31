@@ -46,7 +46,7 @@ class SubscriptionModel {
         description: data['host_description'] ?? '',
         previewImageUrl: data['host_preview_image_url'] ?? '',
         expireAt: MDateTime.fromString(data['expired_at'] ?? ''),
-        proofImage: data['proof_url'] ?? '',
+        proofImage: data['proof_url'],
         status: SubscriptionStatus.fromString(data['status'] ?? 'deactivated'),
         createdAt:
             MDateTime.fromString(data['created_at'] ?? '') ?? MDateTime.zero,
